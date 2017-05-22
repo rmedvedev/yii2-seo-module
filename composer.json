@@ -1,0 +1,24 @@
+{
+    "name": "rusmd89/yii2-seo-module",
+    "description": "Module for changing SEO",
+    "require": {
+        "yiisoft/yii2": "^2.0",
+        "twig/twig": "1.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Medvedev Ruslan",
+            "email": "rusmd89@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "rusmd89\\seo\\": ""
+        }
+    },
+    "minimum-stability": "dev"
+}
