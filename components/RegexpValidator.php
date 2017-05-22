@@ -1,8 +1,8 @@
 <?php
 
-namespace rusmd89\seo\components;
+namespace ruslan89\seo\components;
 
-use rusmd89\seo\classes\RegExpDecorator;
+use ruslan89\seo\classes\RegExpDecorator;
 use yii\validators\Validator;
 
 class RegexpValidator extends Validator

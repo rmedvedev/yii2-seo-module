@@ -1,8 +1,8 @@
 <?php
 
-namespace rusmd89\seo\tests\unit;
+namespace ruslan89\seo\tests\unit;
 
-use rusmd89\seo\classes\RegExpDecorator;
+use ruslan89\seo\classes\RegExpDecorator;
 
 class RegExpDecoratorTest extends \PHPUnit_Framework_TestCase
 {

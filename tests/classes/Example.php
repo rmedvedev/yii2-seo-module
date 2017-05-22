@@ -1,6 +1,6 @@
 <?php
 
-namespace rusmd89\seo\tests\classes;
+namespace ruslan89\seo\tests\classes;
 
 use yii\db\ActiveRecord;
 

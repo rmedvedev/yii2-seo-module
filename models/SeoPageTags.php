@@ -1,6 +1,6 @@
 <?php
 
-namespace rusmd89\seo\models;
+namespace ruslan89\seo\models;
 
 use Yii;
 

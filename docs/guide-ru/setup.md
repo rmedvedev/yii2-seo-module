@@ -4,13 +4,13 @@
 Для установки данного модуля добавьте в секцию modules файла настроек Yii2 следующую запись:
 
 ~~~
-'seo' => \rusmd89\seo\SeoModule::class
+'seo' => \ruslan89\seo\SeoModule::class
 ~~~
 
 в секцию components добавьте следующий код:
 ```php
     'seo' => [
-        'class' => \rusmd89\seo\components\Seo::class,
+        'class' => \ruslan89\seo\components\Seo::class,
         'cacheExpire' => 24 * 3600, //время жизни кэша
     ],
 ```
@@ -27,7 +27,7 @@
 
 Создадим файл ArticleRoute.php:
 ```php
-class ArticleRoute implements \rusmd89\seo\classes\RouteParameter
+class ArticleRoute implements \ruslan89\seo\classes\RouteParameter
 {
     public function getModel($attribute)
     {

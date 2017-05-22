@@ -1,8 +1,8 @@
 <?php
 
-namespace rusmd89\seo\models;
+namespace ruslan89\seo\models;
 
-use rusmd89\seo\components\RegexpValidator;
+use ruslan89\seo\components\RegexpValidator;
 use Yii;
 
 /**

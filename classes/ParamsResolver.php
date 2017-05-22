@@ -1,9 +1,9 @@
 <?php
 
-namespace rusmd89\seo\classes;
+namespace ruslan89\seo\classes;
 
-use rusmd89\seo\classes\exceptions\NotFoundFileException;
-use rusmd89\seo\classes\exceptions\NotFoundModelException;
+use ruslan89\seo\classes\exceptions\NotFoundFileException;
+use ruslan89\seo\classes\exceptions\NotFoundModelException;
 
 class ParamsResolver
 {

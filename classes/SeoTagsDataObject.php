@@ -1,12 +1,12 @@
 <?php
 
-namespace rusmd89\seo\classes;
+namespace ruslan89\seo\classes;
 
-use rusmd89\seo\models\SeoPage;
+use ruslan89\seo\models\SeoPage;
 
 /**
  * Class SeoTagsDataObject
- * @package rusmd89\seo\classes
+ * @package ruslan89\seo\classes
  */
 class SeoTagsDataObject
 {

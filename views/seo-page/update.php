@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
-/* @var $model rusmd89\seo\models\SeoPage */
+/* @var $model ruslan89\seo\models\SeoPage */
 
 $this->title = Yii::t('app', 'Update {modelClass}: ', [
         'modelClass' => 'Seo Page',

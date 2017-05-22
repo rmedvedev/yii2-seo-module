@@ -4,7 +4,7 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model rusmd89\seo\models\SeoPage */
+/* @var $model ruslan89\seo\models\SeoPage */
 
 $this->title = Yii::t('app', 'Create Seo Page');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Seo Pages'), 'url' => ['index']];

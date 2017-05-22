@@ -1,6 +1,6 @@
 <?php
 
-namespace rusmd89\seo\classes\exceptions;
+namespace ruslan89\seo\classes\exceptions;
 
 class SeoPageNotFoundException extends SeoBaseException
 {

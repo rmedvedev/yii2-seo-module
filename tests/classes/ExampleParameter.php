@@ -1,8 +1,8 @@
 <?php
 
-namespace rusmd89\seo\tests\classes;
+namespace ruslan89\seo\tests\classes;
 
-use rusmd89\seo\classes\RouteParameter;
+use ruslan89\seo\classes\RouteParameter;
 use yii\db\ActiveRecord;
 
 class ExampleParameter implements RouteParameter

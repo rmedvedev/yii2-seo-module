@@ -1,9 +1,9 @@
 <?php
 
-namespace rusmd89\seo\tests\unit;
+namespace ruslan89\seo\tests\unit;
 
-use rusmd89\seo\classes\ParamsResolver;
-use rusmd89\seo\tests\classes\Example;
+use ruslan89\seo\classes\ParamsResolver;
+use ruslan89\seo\tests\classes\Example;
 
 class ParamsResolverTest extends \PHPUnit_Framework_TestCase
 {
@@ -21,7 +21,7 @@ class ParamsResolverTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * @expectedException rusmd89\seo\classes\exceptions\NotFoundModelException
+     * @expectedException ruslan89\seo\classes\exceptions\NotFoundModelException
      */
     public function testErrorResolveParams()
     {

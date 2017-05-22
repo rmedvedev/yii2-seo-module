@@ -1,8 +1,8 @@
 <?php
 
-namespace rusmd89\seo\controllers;
+namespace ruslan89\seo\controllers;
 
-use rusmd89\seo\models\SeoPage;
+use ruslan89\seo\models\SeoPage;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;

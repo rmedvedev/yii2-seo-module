@@ -1,11 +1,11 @@
 <?php
 
-namespace rusmd89\seo\tests\unit;
+namespace ruslan89\seo\tests\unit;
 
-use rusmd89\seo\classes\RouteResolver;
-use rusmd89\seo\classes\SeoParamsInterpreter;
-use rusmd89\seo\models\SeoPage;
-use rusmd89\seo\tests\classes\Example;
+use ruslan89\seo\classes\RouteResolver;
+use ruslan89\seo\classes\SeoParamsInterpreter;
+use ruslan89\seo\models\SeoPage;
+use ruslan89\seo\tests\classes\Example;
 
 class SeoParamsInterpreterTest extends \PHPUnit_Framework_TestCase
 {

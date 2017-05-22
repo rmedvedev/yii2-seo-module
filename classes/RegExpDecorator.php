@@ -1,10 +1,10 @@
 <?php
 
-namespace rusmd89\seo\classes;
+namespace ruslan89\seo\classes;
 
 /**
  * Class RegExpFacade
- * @package rusmd89\seo\classes
+ * @package ruslan89\seo\classes
  */
 class RegExpDecorator
 {

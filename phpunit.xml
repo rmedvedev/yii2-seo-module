@@ -6,8 +6,7 @@
         timeoutForSmallTests="1"
         timeoutForMediumTests="10"
         timeoutForLargeTests="60"
-        >
-
+>
     <testsuites>
         <testsuite name="Unit tests">
             <directory suffix=".php">tests</directory>

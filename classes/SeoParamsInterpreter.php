@@ -1,8 +1,8 @@
 <?php
 
-namespace rusmd89\seo\classes;
+namespace ruslan89\seo\classes;
 
-use rusmd89\seo\models\SeoPage;
+use ruslan89\seo\models\SeoPage;
 use Twig_Environment;
 use Twig_Loader_Array;
 

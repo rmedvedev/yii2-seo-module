@@ -1,12 +1,12 @@
 <?php
 
-namespace rusmd89\seo\classes;
+namespace ruslan89\seo\classes;
 
 use yii\db\ActiveRecord;
 
 /**
  * Class RouteParameter
- * @package rusmd89\seo\classes
+ * @package ruslan89\seo\classes
  */
 interface RouteParameter
 {

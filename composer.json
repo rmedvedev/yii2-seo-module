@@ -1,6 +1,6 @@
 {
-    "name": "rusmd89/yii2-seo-module",
-    "description": "Module for changing SEO",
+    "name": "ruslan89/yii2-seo-module",
+    "description": "Module for administrating SEO",
     "require": {
         "yiisoft/yii2": "^2.0",
         "twig/twig": "1.x-dev"
@@ -12,12 +12,12 @@
     "authors": [
         {
             "name": "Medvedev Ruslan",
-            "email": "rusmd89@gmail.com"
+            "email": "ruslan89@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "rusmd89\\seo\\": ""
+            "ruslan89\\seo\\": ""
         }
     },
     "minimum-stability": "dev"

@@ -1,12 +1,12 @@
 <?php
 
-namespace rusmd89\seo\components;
+namespace ruslan89\seo\components;
 
-use rusmd89\seo\classes\exceptions\SeoBaseException;
-use rusmd89\seo\classes\ParamsResolver;
-use rusmd89\seo\classes\RouteResolver;
-use rusmd89\seo\classes\SeoParamsInterpreter;
-use rusmd89\seo\classes\SeoTagsDataObject;
+use ruslan89\seo\classes\exceptions\SeoBaseException;
+use ruslan89\seo\classes\ParamsResolver;
+use ruslan89\seo\classes\RouteResolver;
+use ruslan89\seo\classes\SeoParamsInterpreter;
+use ruslan89\seo\classes\SeoTagsDataObject;
 use yii\base\Application;
 use yii\base\Component;
 use yii\log\Logger;
@@ -14,7 +14,7 @@ use yii\web\View;
 
 /**
  * Class Seo
- * @package rusmd89\seo\components
+ * @package ruslan89\seo\components
  */
 class Seo extends Component
 {
