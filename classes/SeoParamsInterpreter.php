@@ -2,7 +2,6 @@
 
 namespace ruslan89\seo\classes;
 
-use ruslan89\seo\models\SeoPage;
 use Twig_Environment;
 use Twig_Loader_Array;
 

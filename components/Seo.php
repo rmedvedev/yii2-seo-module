@@ -23,7 +23,7 @@ class Seo extends Component
     /**
      * @var array
      */
-    public $params;
+    public $params = [];
 
     /**
      * @var int
