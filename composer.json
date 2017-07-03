@@ -3,7 +3,8 @@
     "description": "Module for administrating SEO",
     "require": {
         "yiisoft/yii2": "^2.0",
-        "twig/twig": "1.x-dev"
+        "twig/twig": "1.x-dev",
+        "2amigos/yii2-ckeditor-widget": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"

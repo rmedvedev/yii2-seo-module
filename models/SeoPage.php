@@ -15,6 +15,9 @@ use Yii;
  * @property string $title
  * @property string $description
  * @property string $keywords
+ * @property string $header
+ * @property string $subheader
+ * @property string $seo_text
  *
  * @property SeoPageTags[] $tags
  */
@@ -34,7 +37,7 @@ class SeoPage extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['title', 'description', 'keywords'], 'string'],
+            [['title', 'description', 'keywords', 'header', 'subheader', 'seo_text'], 'string'],
             [['name', 'code', 'route'], 'string', 'max' => 255],
             [['route'], RegexpValidator::class, 'allowEmpty' => true],
         ];
@@ -53,6 +56,9 @@ class SeoPage extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'Title'),
             'description' => Yii::t('app', 'Description'),
             'keywords' => Yii::t('app', 'Keywords'),
+            'header' => Yii::t('app', 'Header'),
+            'subheader' => Yii::t('app', 'Sub header'),
+            'seo_text' => Yii::t('app', 'Seo text'),
         ];
     }
 
