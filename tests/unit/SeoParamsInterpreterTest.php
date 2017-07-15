@@ -45,6 +45,9 @@ class SeoParamsInterpreterTest extends \PHPUnit_Framework_TestCase
         $seoPage1->title = '{{example.name}}';
         $seoPage1->description = 'Qwerty {{example.name}} aqweqwqw';
         $seoPage1->keywords = '{{example.name}}';
+        $seoPage1->header = '';
+        $seoPage1->subheader = '';
+        $seoPage1->seo_text = '';
         $seoPage1->tags = [];
 
         $seoPage2 = clone $seoPageModel;

@@ -26,6 +26,9 @@ class SeoParamsInterpreter
             'title' => $this->seoDataObject->getTitle(),
             'description' => $this->seoDataObject->getDescription(),
             'keywords' => $this->seoDataObject->getKeywords(),
+            'header' => $this->seoDataObject->getHeader(),
+            'subheader' => $this->seoDataObject->getSubheader(),
+            'seo_text' => $this->seoDataObject->getSeoText(),
         ];
 
         foreach ($this->seoDataObject->getTags() as $tag) {
@@ -38,6 +41,9 @@ class SeoParamsInterpreter
         $this->seoDataObject->setTitle($twig->render('title', $this->resolvedParams));
         $this->seoDataObject->setDescription($twig->render('description', $this->resolvedParams));
         $this->seoDataObject->setKeywords($twig->render('keywords', $this->resolvedParams));
+        $this->seoDataObject->setHeader($twig->render('header', $this->resolvedParams));
+        $this->seoDataObject->setSubheader($twig->render('subheader', $this->resolvedParams));
+        $this->seoDataObject->setSeoText($twig->render('seo_text', $this->resolvedParams));
         foreach ($this->seoDataObject->getTags() as $tag) {
             $tag['content'] = $twig->render($tag['name'], $this->resolvedParams);
         }

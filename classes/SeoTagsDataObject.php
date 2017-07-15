@@ -22,6 +22,15 @@ class SeoTagsDataObject
     /** @var  array */
     private $tags = [];
 
+    /** @var  string */
+    private $header;
+
+    /** @var  string */
+    private $subheader;
+
+    /** @var  string */
+    private $seo_text;
+
     public function __construct(SeoPage $seoPage = null)
     {
         if(empty($seoPage)){
@@ -31,6 +40,9 @@ class SeoTagsDataObject
         $this->setTitle($seoPage->title);
         $this->setDescription($seoPage->description);
         $this->setKeywords($seoPage->keywords);
+        $this->setHeader($seoPage->header);
+        $this->setSubheader($seoPage->subheader);
+        $this->setSeoText($seoPage->seo_text);
         foreach ($seoPage->tags as $tag) {
             $this->tags[] = $tag->toArray(['name', 'content']);
         }
@@ -98,5 +110,53 @@ class SeoTagsDataObject
     public function setTags($tags)
     {
         $this->tags = $tags;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHeader()
+    {
+        return $this->header;
+    }
+
+    /**
+     * @param string $header
+     */
+    public function setHeader($header)
+    {
+        $this->header = $header;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubheader()
+    {
+        return $this->subheader;
+    }
+
+    /**
+     * @param string $subheader
+     */
+    public function setSubheader($subheader)
+    {
+        $this->subheader = $subheader;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoText()
+    {
+        return $this->seo_text;
+    }
+
+    /**
+     * @param string $seo_text
+     */
+    public function setSeoText($seo_text)
+    {
+        $this->seo_text = $seo_text;
     }
 }
