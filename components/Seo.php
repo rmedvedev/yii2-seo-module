@@ -45,7 +45,29 @@ class Seo extends Component
      */
     public function renderMetaTags()
     {
-        $this->seoDataObject = $this->getSeoDataObject();
+        $this->seoDataObject = new SeoTagsDataObject();
+        try {
+            $currentRoute = $this->getCurrentRoute();
+
+            $cacheKey = self::CACHE_KEY . $currentRoute;
+            if (false == $seoDataObject = $this->getCache()->get($cacheKey)) {
+                $routeResolver = new RouteResolver();
+                $routeResolver->resolve($currentRoute);
+                $seoDataObject = $routeResolver->getSeoDataObject();
+
+                $paramsResolver = new ParamsResolver($this->params);
+                $paramsResolver->resolve($routeResolver->getRouteMatches());
+
+                $seoParamsInterpreter = new SeoParamsInterpreter($seoDataObject, $paramsResolver->getResolvedParams());
+                $seoParamsInterpreter->run();
+
+                $this->getCache()->set($cacheKey, $seoDataObject, $this->cacheExpire);
+            }
+
+            $this->seoDataObject = $seoDataObject;
+        } catch (SeoBaseException $e) {
+            \Yii::getLogger()->log($e->getMessage(), Logger::LEVEL_WARNING);
+        }
     }
 
     /**
@@ -76,32 +98,9 @@ class Seo extends Component
     /**
      * @return SeoTagsDataObject
      */
-    protected function getSeoDataObject()
+    public function getSeoData()
     {
-        try {
-            $currentRoute = $this->getCurrentRoute();
-
-            $cacheKey = self::CACHE_KEY . $currentRoute;
-            if( false == $seoDataObject = $this->getCache()->get($cacheKey)) {
-                $routeResolver = new RouteResolver();
-                $routeResolver->resolve($currentRoute);
-                $seoDataObject = $routeResolver->getSeoDataObject();
-
-                $paramsResolver = new ParamsResolver($this->params);
-                $paramsResolver->resolve($routeResolver->getRouteMatches());
-
-                $seoParamsInterpreter = new SeoParamsInterpreter($seoDataObject, $paramsResolver->getResolvedParams());
-                $seoParamsInterpreter->run();
-
-                $this->getCache()->set($cacheKey, $seoDataObject, $this->cacheExpire);
-            }
-
-            return $seoDataObject;
-        } catch (SeoBaseException $e) {
-            \Yii::getLogger()->log($e->getMessage(), Logger::LEVEL_WARNING);
-        }
-
-        return new SeoTagsDataObject();
+        return $this->seoDataObject;
     }
 
     /**
@@ -118,30 +117,6 @@ class Seo extends Component
             default:
                 $view->registerMetaTag(['name' => $name, 'content' => $content]);
         }
-    }
-
-    /**
-     * @param $description
-     */
-    public function setDescription($description)
-    {
-        $this->seoDataObject->setDescription($description);
-    }
-
-    /**
-     * @param $title
-     */
-    public function setTitle($title)
-    {
-        $this->seoDataObject->setTitle($title);
-    }
-
-    /**
-     * @param $keywords
-     */
-    public function setKeywords($keywords)
-    {
-        $this->seoDataObject->setKeywords($keywords);
     }
 
     /**
