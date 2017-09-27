@@ -2,6 +2,7 @@
 
 namespace ruslan89\seo\models;
 
+use himiklab\sortablegrid\SortableGridBehavior;
 use ruslan89\seo\components\RegexpValidator;
 use Yii;
 
@@ -18,6 +19,7 @@ use Yii;
  * @property string $header
  * @property string $subheader
  * @property string $seo_text
+ * @property int priority
  *
  * @property SeoPageTags[] $tags
  */
@@ -31,6 +33,16 @@ class SeoPage extends \yii\db\ActiveRecord
         return 'seo_page';
     }
 
+    public function behaviors()
+    {
+        return [
+            'sort' => [
+                'class' => SortableGridBehavior::className(),
+                'sortableAttribute' => 'priority'
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -39,6 +51,7 @@ class SeoPage extends \yii\db\ActiveRecord
         return [
             [['title', 'description', 'keywords', 'header', 'subheader', 'seo_text'], 'string'],
             [['name', 'code', 'route'], 'string', 'max' => 255],
+            [['priority'], 'number'],
             [['route'], RegexpValidator::class, 'allowEmpty' => true],
         ];
     }

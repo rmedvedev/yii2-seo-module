@@ -32,7 +32,7 @@ class RouteResolver
      */
     public function getSeoPages()
     {
-        return SeoPage::find()->all();
+        return SeoPage::find()->orderBy(['priority' => SORT_DESC])->all();
     }
 
     /**

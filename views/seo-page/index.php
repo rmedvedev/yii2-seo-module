@@ -1,6 +1,6 @@
 <?php
 
-use yii\grid\GridView;
+use himiklab\sortablegrid\SortableGridView;
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a(Yii::t('app', 'Create Seo Page'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
-    <?= GridView::widget([
+    <?= SortableGridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             'id',

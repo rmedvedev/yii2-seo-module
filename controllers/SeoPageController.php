@@ -2,6 +2,7 @@
 
 namespace ruslan89\seo\controllers;
 
+use himiklab\sortablegrid\SortableGridAction;
 use ruslan89\seo\models\SeoPage;
 use Yii;
 use yii\data\ActiveDataProvider;
@@ -31,13 +32,23 @@ class SeoPageController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create', 'update', 'delete'],
+                        'actions' => ['index', 'create', 'update', 'delete', 'sort'],
                         'roles' => ['@'],
                     ],
                     [
                         'allow' => false,
                     ],
                 ],
+            ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+            'sort' => [
+                'class' => SortableGridAction::className(),
+                'modelName' => SeoPage::className(),
             ],
         ];
     }
@@ -49,7 +60,7 @@ class SeoPageController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => SeoPage::find(),
+            'query' => SeoPage::find()->orderBy(['priority' => SORT_DESC]),
         ]);
 
         return $this->render('index', [

@@ -12,7 +12,7 @@ class SeoParamsInterpreter
 
     /**
      * @param SeoTagsDataObject $seoDataObject
-     * @param array             $resolvedParams
+     * @param array $resolvedParams
      */
     public function __construct(SeoTagsDataObject $seoDataObject, $resolvedParams)
     {
@@ -22,30 +22,31 @@ class SeoParamsInterpreter
 
     public function run()
     {
-        $seoTags = [
-            'title' => $this->seoDataObject->getTitle(),
-            'description' => $this->seoDataObject->getDescription(),
-            'keywords' => $this->seoDataObject->getKeywords(),
-            'header' => $this->seoDataObject->getHeader(),
-            'subheader' => $this->seoDataObject->getSubheader(),
-            'seo_text' => $this->seoDataObject->getSeoText(),
-        ];
-
-        foreach ($this->seoDataObject->getTags() as $tag) {
-            $seoTags[$tag['name']] = $tag['content'];
+        $seoData = $this->seoDataObject;
+        $this->seoDataObject->setTitle($this->twigRender($seoData->getTitle(), $this->resolvedParams));
+        $this->seoDataObject->setDescription($this->twigRender($seoData->getDescription(), $this->resolvedParams));
+        $this->seoDataObject->setKeywords($this->twigRender($seoData->getKeywords(), $this->resolvedParams));
+        $this->seoDataObject->setHeader($this->twigRender($seoData->getHeader(), $this->resolvedParams));
+        $this->seoDataObject->setSubheader($this->twigRender($seoData->getSubheader(), $this->resolvedParams));
+        $this->seoDataObject->setSeoText($this->twigRender($seoData->getSeoText(), $this->resolvedParams));
+        foreach ($this->seoDataObject->getTags() as &$tag) {
+            $tag['content'] = $this->twigRender($tag['name'], $this->resolvedParams);
         }
+    }
 
-        $loader = new Twig_Loader_Array($seoTags);
-        $twig = new Twig_Environment($loader);
-
-        $this->seoDataObject->setTitle($twig->render('title', $this->resolvedParams));
-        $this->seoDataObject->setDescription($twig->render('description', $this->resolvedParams));
-        $this->seoDataObject->setKeywords($twig->render('keywords', $this->resolvedParams));
-        $this->seoDataObject->setHeader($twig->render('header', $this->resolvedParams));
-        $this->seoDataObject->setSubheader($twig->render('subheader', $this->resolvedParams));
-        $this->seoDataObject->setSeoText($twig->render('seo_text', $this->resolvedParams));
-        foreach ($this->seoDataObject->getTags() as $tag) {
-            $tag['content'] = $twig->render($tag['name'], $this->resolvedParams);
+    /**
+     * @param $text
+     * @param $params
+     * @return string
+     */
+    private function twigRender($text, $params)
+    {
+        try {
+            $loader = new Twig_Loader_Array(['text' => $text]);
+            $twig = new Twig_Environment($loader);
+            return $twig->render('text', $params);
+        } catch (\Twig_Error $e) {
+            return '';
         }
     }
 
